@@ -1,4 +1,0 @@
-D:\MyHeap\Unity test project\New Unity Project\UnitySnake\UnitySnake\obj\Debug\netstandard2.0\UnitySnake.csprojAssemblyReference.cache
-D:\MyHeap\Unity test project\New Unity Project\UnitySnake\UnitySnake\obj\Debug\netstandard2.0\UnitySnake.AssemblyInfoInputs.cache
-D:\MyHeap\Unity test project\New Unity Project\UnitySnake\UnitySnake\obj\Debug\netstandard2.0\UnitySnake.AssemblyInfo.cs
-D:\MyHeap\Unity test project\New Unity Project\UnitySnake\UnitySnake\obj\Debug\netstandard2.0\UnitySnake.csproj.CoreCompileInputs.cache
