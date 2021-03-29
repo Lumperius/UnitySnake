@@ -11,7 +11,7 @@ public class Field : MonoBehaviour
     [SerializeField]
     public TileBase FieldTilePrefab, BorderTilePrefab;
 
-    public int Width { get; set; } = 5;
+    public int Width { get; set; } = 10;
     public int Height { get; set; } = 5;
 
 
@@ -24,7 +24,7 @@ public class Field : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print(tilemap.localBounds);
+
     }
 
     public void Draw()
@@ -58,7 +58,6 @@ public class Field : MonoBehaviour
     {
         TileData tileData = new TileData();
         tilemap.GetTile(point).GetTileData(point, null, ref tileData);
-        print(tileData.sprite.name);
         if (tileData.sprite.name == "BorderTitle")
         {
             return true;

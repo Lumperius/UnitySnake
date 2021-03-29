@@ -9,6 +9,7 @@ public class Food : MonoBehaviour
     public int Y;
 
     private Field field;
+    private Game game;
 
     [SerializeField]
     Transform FoodObj;
@@ -20,34 +21,38 @@ public class Food : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        field = GameObject.FindObjectOfType<Field>();
+        game = FindObjectOfType<Game>();
+        field = FindObjectOfType<Field>();
 
         GenerateNewPosition();
         FoodObj = Instantiate(FoodPrefab);
+        FoodObj.SetParent(transform, true);
         FoodObj.localPosition = new Vector2(X, Y);
     }
 
     // Update is called once per frame
     void Update()
     {
+        transform.position = new Vector2(0, 0);
         FoodObj.localPosition = new Vector2(X, Y);
     }
 
     public void GenerateNewPosition(IEnumerable<Vector3> snakePosition)
     {
-        var possiblePositions = new List<(int x, int y)>();
-        for (int i = 0; i < field.Height; i++)
+        var listedSnake = snakePosition.ToList();
+        var possiblePositionList = new List<(int x, int y)>();
+        for (int i = 0; i <= field.Height; i++)
         {
-            for (int k = 0; k < field.Width; k++)
+            for (int k = 0; k <= field.Width; k++)
             {
-                if (!snakePosition.Any(p => p.x == i && p.y == k))
+                if (!snakePosition.Any(p => p.x == k && p.y == i))
                 {
-                    var possiblePosition = (i, k);
-                    possiblePositions.Add(possiblePosition);
+                    var possiblePosition = (k, i);
+                    possiblePositionList.Add(possiblePosition);
                 }
             }
         }
-        var randomPosition = possiblePositions[Random.Range(0, possiblePositions.Count)];
+        var randomPosition = possiblePositionList[Random.Range(0, possiblePositionList.Count)];
         X = randomPosition.x;
         Y = randomPosition.y;
     }

@@ -11,15 +11,19 @@ public class Message : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        snake = GameObject.FindObjectOfType<Snake>();
-        Instantiate(message);
+        message.resizeTextForBestFit = true;
+        message.enabled = true;
+        snake = FindObjectOfType<Snake>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        Instantiate(message);
-        print(snake.SnakeChains.Count);
         message.text = $"You got {snake.SnakeChains.Count} snake points.";
+    }
+
+    public void SetMessage(string newMessage)
+    {
+        message.text = newMessage;
     }
 }
